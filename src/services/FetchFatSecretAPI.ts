@@ -54,7 +54,7 @@ class FetchFatSecretAPI {
 
     return this.accessToken;
   }
-  
+
   async searchFood(foodName: string, page: string) {
     try {
       const token = await this.getAccessToken();
@@ -85,6 +85,33 @@ class FetchFatSecretAPI {
     }
   }
 
+  async searchFoodById(id: string) {
+    try {
+      const token = await this.getAccessToken();
+
+      const response = await fetch(
+        `https://platform.fatsecret.com/rest/food/v4?food_id=${id}&format=json`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new AppError("Erro ao buscar dados da FatSecret");
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Erro FatSecret:", error);
+      throw new AppError(
+        error instanceof AppError ? error.message : "Erro interno do servidor",
+        error instanceof AppError ? error.statusCode : 500
+      );
+    }
+  }
 }
 
 export default FetchFatSecretAPI;
