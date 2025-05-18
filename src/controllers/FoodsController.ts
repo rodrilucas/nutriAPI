@@ -16,6 +16,12 @@ class FoodsController {
     );
     res.json(data);
   };
+
+  getById = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const data = await this.fetchFatSecretAPI.searchFoodById(id);
+    res.json(data);
+  };
 }
 
 export default FoodsController;
