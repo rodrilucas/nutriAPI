@@ -1,11 +1,9 @@
 import { Request, Response } from "express";
-import FetchFatSecretAPI from "../services/FetchFatSecretAPI";
+import FetchFatSecretAPI from "../services/FatSecretAPI";
 
 class FoodsController {
-  private fetchFatSecretAPI: FetchFatSecretAPI;
-
-  constructor() {
-    this.fetchFatSecretAPI = new FetchFatSecretAPI();
+  constructor(private fetchFatSecretAPI: FetchFatSecretAPI) {
+    this.fetchFatSecretAPI = fetchFatSecretAPI;
   }
 
   getAll = async (req: Request, res: Response) => {

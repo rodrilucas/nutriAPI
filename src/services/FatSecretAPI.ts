@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import AppError from "../error/AppError";
 dotenv.config();
 
-class FetchFatSecretAPI {
+class FatSecretAPI {
   private accessToken: string | null = null;
   private tokenExpiresAt: number | null = null;
 
@@ -114,4 +114,4 @@ class FetchFatSecretAPI {
   }
 }
 
-export default FetchFatSecretAPI;
+export default FatSecretAPI;

@@ -3,10 +3,10 @@ import { catchAsync } from "../middlewares/catchAsync";
 import { validateQuery } from "../middlewares/validateQuery";
 import { validateParams } from "../middlewares/validateParams";
 import { params, queries } from "../schemas/zod";
-import FoodsController from "../controllers/FoodsController";
+import { makeFatSecretApiFactory } from "../services/factories/makeFatSecretApiFactory";
 
 const routes = Router();
-const foodsController = new FoodsController();
+const foodsController = makeFatSecretApiFactory();
 
 routes.get(
   "food/search",
