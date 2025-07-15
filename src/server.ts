@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://nutri-lt1ax3u17-rodri-lucas.vercel.app", 
+    origin: "https://nutri-sandy.vercel.app/", 
   })
 );
 
