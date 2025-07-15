@@ -2,20 +2,23 @@ import express from "express";
 import cors from "cors";
 import routes from "./routes/routes";
 import { errorHandler } from "./middlewares/errorHandler";
-import checkApiKey from "./middlewares/checkApiKey";
+import checkAccess from "./middlewares/checkApiKey";
 
 const app = express();
 const PORT = process.env.PORT;
 
 app.use(express.json());
+
 app.use(
   cors({
-    origin: "https://nutri-lt1ax3u17-rodri-lucas.vercel.app/",
+    origin: "https://nutri-lt1ax3u17-rodri-lucas.vercel.app", 
   })
 );
 
-app.use(checkApiKey);
-app.use("api/v1/", routes);
+app.use(checkAccess);
+
+app.use("/api/v1/", routes);
+
 app.use(errorHandler);
 
 app.listen(PORT, () => {
