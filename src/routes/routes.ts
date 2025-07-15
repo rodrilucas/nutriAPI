@@ -9,13 +9,13 @@ const routes = Router();
 const foodsController = makeFatSecretApiFactory();
 
 routes.get(
-  "food/search",
+  "/food/search",
   validateQuery(queries),
   catchAsync(foodsController.getAll)
 );
 
 routes.get(
-  "food/search/:id",
+  "/food/search/:id",
   validateParams(params),
   catchAsync(foodsController.getById)
 );

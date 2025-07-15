@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 
 const checkAccess: RequestHandler = (req, res, next) => {
-  const allowedOrigins = ["https://nutri-sandy.vercel.app/"];
+  const allowedOrigins = ["https://nutri-sandy.vercel.app"];
 
   const origin = req.get("origin") || "";
   const referer = req.get("referer") || "";

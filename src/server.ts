@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import routes from "./routes/routes";
 import { errorHandler } from "./middlewares/errorHandler";
-import checkAccess from "./middlewares/checkApiKey";
+import checkAccess from "./middlewares/checkAccess";
 
 const app = express();
 const PORT = process.env.PORT;
@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://nutri-sandy.vercel.app/", 
+    origin: "https://nutri-sandy.vercel.app", 
   })
 );
 
